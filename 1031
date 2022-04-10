@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+int mian()
+{
+	int n,i,j,sum,c=0,q=0;
+	scanf("%d",&n);
+	char id[19];
+	char nid[100][19];
+	int w[]={7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};
+	char m[]={'1','0','X','9','8','7','6','5','4','3','2'};
+	for(i=0;i<n;i++)
+	{
+		scanf("%s",id);
+		for(j=0,sum=0;j<17&&id[j]>='0'&&id[j]<='9';j++)
+		{
+			sum+=w[j]*(id[j]-'0');
+		}
+		if(j==17&&m[sum%11]==id[17])
+		{
+			c++;
+		}
+		else
+		{
+			strcpy(nid[q],id);
+			q++;
+		}
+	}
+	if(c==n)
+	printf("All passed");
+	else
+	{
+		for(i=0;i<q;i++)
+		purs(nid[i]);
+	}
+}
